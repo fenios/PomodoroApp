@@ -5,8 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "PomodoroMenuBarApp",
+    platforms: [.macOS(.v14)],
     dependencies: [
-        .package(path: "../../Modules/PomodoroTimerCore"),
+        .package(path: "../Modules/PomodoroTimerCore"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

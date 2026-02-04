@@ -1,6 +1,7 @@
 import Foundation
 import Observation
 
+@MainActor
 @Observable
 public final class PomodoroTimer {
     public var state: TimerState = .stopped
@@ -28,7 +29,12 @@ public final class PomodoroTimer {
 
         timerTask = Task { [weak self] in
             while let self = self, self.state == .running {
-                await Task.sleep(nanoseconds: 1_000_000_000) // Sleep for 1 second
+                do {
+                    try await Task.sleep(nanoseconds: 1_000_000_000) // Sleep for 1 second
+                } catch {
+                    // Task was cancelled, break the loop
+                    break
+                }
                 await MainActor.run {
                     self.tick()
                 }
