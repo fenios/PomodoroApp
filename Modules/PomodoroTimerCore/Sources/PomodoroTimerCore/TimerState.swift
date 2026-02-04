@@ -1,6 +1,6 @@
 import Foundation
 
-public enum TimerState: String, Codable, CaseIterable, Identifiable {
+public enum TimerState: String, Codable, CaseIterable, Identifiable, Sendable {
     public var id: String { rawValue }
 
     case stopped

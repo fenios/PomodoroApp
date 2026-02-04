@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Configuration {
+public struct Configuration: Sendable {
     public var pomodoroDuration: TimeInterval
     public var shortBreakDuration: TimeInterval
     public var longBreakDuration: TimeInterval

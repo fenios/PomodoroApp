@@ -1,5 +1,6 @@
 import Foundation
 import Observation
+import AppKit // Import AppKit for NSSound
 
 @MainActor
 @Observable
@@ -78,6 +79,12 @@ public final class PomodoroTimer {
 
         if timeRemaining <= 0 {
             timeRemaining = 0
+            
+            // Play system sound when a cycle finishes
+            NSSound.beep() // A simple beep sound
+            // You can use other sounds like:
+            // if let sound = NSSound(named: NSSound.Name("Glass")) { sound.play() }
+            
             advancePhase()
             state = .stopped
             timerTask?.cancel()

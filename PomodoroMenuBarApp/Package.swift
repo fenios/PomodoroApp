@@ -8,6 +8,7 @@ let package = Package(
     platforms: [.macOS(.v14)],
     dependencies: [
         .package(path: "../Modules/PomodoroTimerCore"),
+        .package(path: "../Modules/MenuBarAppUI"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -16,6 +17,7 @@ let package = Package(
             name: "PomodoroMenuBarApp",
             dependencies: [
                 .product(name: "PomodoroTimerCore", package: "PomodoroTimerCore"),
+                .product(name: "MenuBarAppUI", package: "MenuBarAppUI"),
             ]
         ),
     ]

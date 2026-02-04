@@ -1,6 +1,6 @@
 import Foundation
 
-public enum TimerPhase: String, Codable, CaseIterable, Identifiable {
+public enum TimerPhase: String, Codable, CaseIterable, Identifiable, Sendable {
     public var id: String { rawValue }
 
     case working = "Work"

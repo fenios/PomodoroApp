@@ -1,14 +1,14 @@
 import SwiftUI
 import PomodoroTimerCore
 
-struct PomodoroTimerView: View {
+public struct PomodoroTimerView: View {
     @Bindable var pomodoroTimer: PomodoroTimer
 
-    init(pomodoroTimer: PomodoroTimer) {
+    public init(pomodoroTimer: PomodoroTimer) {
         self.pomodoroTimer = pomodoroTimer
     }
 
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 15) {
             Text(pomodoroTimer.phase.rawValue)
                 .font(.headline)
