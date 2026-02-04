@@ -14,7 +14,6 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-testing.git", from: "0.1.0"),
         .package(path: "../../Modules/PomodoroSettings"),
     ],
     targets: [
@@ -31,7 +30,6 @@ let package = Package(
             dependencies: [
                 "PomodoroTimerCore",
                 .product(name: "PomodoroSettings", package: "PomodoroSettings"),
-                .product(name: "Testing", package: "swift-testing"),
             ]
         ),
     ]

@@ -15,7 +15,6 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../PomodoroTimerCore"), // Path relative to Modules/MenuBarAppUI
-        .package(url: "https://github.com/apple/swift-testing.git", from: "0.1.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -30,7 +29,6 @@ let package = Package(
             name: "MenuBarAppUITests",
             dependencies: [
                 "MenuBarAppUI",
-                .product(name: "Testing", package: "swift-testing"),
             ]
         ),
     ]
