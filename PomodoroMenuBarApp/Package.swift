@@ -9,6 +9,7 @@ let package = Package(
     dependencies: [
         .package(path: "../Modules/PomodoroTimerCore"),
         .package(path: "../Modules/MenuBarAppUI"),
+        .package(path: "../Modules/PomodoroSettings"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -18,6 +19,7 @@ let package = Package(
             dependencies: [
                 .product(name: "PomodoroTimerCore", package: "PomodoroTimerCore"),
                 .product(name: "MenuBarAppUI", package: "MenuBarAppUI"),
+                .product(name: "PomodoroSettings", package: "PomodoroSettings"),
             ]
         ),
     ]
