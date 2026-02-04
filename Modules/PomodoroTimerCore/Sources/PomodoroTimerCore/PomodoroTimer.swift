@@ -80,10 +80,7 @@ public final class PomodoroTimer {
         if timeRemaining <= 0 {
             timeRemaining = 0
             
-            // Play system sound when a cycle finishes
-            NSSound.beep() // A simple beep sound
-            // You can use other sounds like:
-            // if let sound = NSSound(named: NSSound.Name("Glass")) { sound.play() }
+            if let sound = NSSound(named: NSSound.Name("Glass")) { sound.play() }
             
             advancePhase()
             state = .stopped
