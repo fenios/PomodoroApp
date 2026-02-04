@@ -224,3 +224,4 @@ public final class PomodoroTimer {
             timeRemaining = settingsManager.settings.longBreakDuration
         }
     }
+}

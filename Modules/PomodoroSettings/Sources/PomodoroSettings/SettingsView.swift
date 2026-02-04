@@ -9,6 +9,8 @@ public struct SettingsView: View {
         self.settingsManager = settingsManager
     }
 
+    private let systemSounds = ["Basso", "Blow", "Bottle", "Frog", "Funk", "Glass", "Hero", "Morse", "Ping", "Pop", "Purr", "Sosumi", "Submarine", "Tink"]
+
     public var body: some View {
         Form {
             // MARK: - Timer Section
@@ -28,7 +30,7 @@ public struct SettingsView: View {
                 VStack(alignment: .leading) {
                     Text("Alarm Sound")
                     Picker("Alarm Sound", selection: $settingsManager.settings.alarmSoundName) {
-                        ForEach(NSSound.soundNames, id: \.self) { soundName in
+                        ForEach(systemSounds, id: \.self) { soundName in
                             Text(soundName)
                                 .tag(soundName)
                         }
@@ -56,7 +58,7 @@ public struct SettingsView: View {
                 VStack(alignment: .leading) {
                     Text("Ticking Sound")
                     Picker("Ticking Sound", selection: $settingsManager.settings.tickingSoundName) {
-                        ForEach(NSSound.soundNames, id: \.self) { soundName in
+                        ForEach(systemSounds, id: \.self) { soundName in
                             Text(soundName)
                                 .tag(soundName)
                         }

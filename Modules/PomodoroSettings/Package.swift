@@ -13,24 +13,16 @@ let package = Package(
             targets: ["PomodoroSettings"]
         ),
     ],
-    dependencies: [
-        .package(path: "../PomodoroTimerCore"), // Path relative to Modules/PomodoroSettings
-        .package(url: "https://github.com/apple/swift-testing.git", from: "0.1.0"),
-    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "PomodoroSettings",
-            dependencies: [
-                .product(name: "PomodoroTimerCore", package: "PomodoroTimerCore"),
-            ]
+            name: "PomodoroSettings"
         ),
         .testTarget(
             name: "PomodoroSettingsTests",
             dependencies: [
-                "PomodoroSettings",
-                .product(name: "Testing", package: "swift-testing"),
+                "PomodoroSettings"
             ]
         ),
     ]

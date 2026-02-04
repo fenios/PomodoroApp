@@ -1,7 +1,7 @@
 import Foundation
 import AppKit // For NSSound.soundNames
 
-public struct Settings: Codable, Hashable {
+public struct Settings: Codable, Hashable, Sendable {
     // MARK: - Timer Section
     public var pomodoroDuration: TimeInterval
     public var shortBreakDuration: TimeInterval

@@ -5,15 +5,15 @@ import PomodoroSettings // Import PomodoroSettings
 
 @main
 struct PomodoroMenuBarAppApp: App {
-    // Instantiate SettingsManager and PomodoroTimer here
-    // Use @StateObject for SettingsManager if it needs to persist across app lifecycle
-    // For now, @State is fine, but for production, consider @StateObject or @AppStorage for manager itself
-    @State var settingsManager = SettingsManager()
-    @State private var pomodoroTimer: PomodoroTimer // Declare here, initialize in init if needed
+    @State var settingsManager: SettingsManager
+    @State private var pomodoroTimer: PomodoroTimer
     
+    @Environment(\.openWindow) private var openWindow
+
     init() {
-        // Initialize pomodoroTimer with the settingsManager
-        _pomodoroTimer = State(initialValue: PomodoroTimer(settingsManager: settingsManager))
+        let manager = SettingsManager()
+        _settingsManager = State(initialValue: manager)
+        _pomodoroTimer = State(initialValue: PomodoroTimer(settingsManager: manager))
     }
 
     var body: some Scene {
@@ -24,13 +24,9 @@ struct PomodoroMenuBarAppApp: App {
             // Add a separator and a Settings button
             Divider()
             
-            Button("Settings") {
+            Button("Settings...") {
                 NSApp.activate(ignoringOtherApps: true) // Bring app to foreground
-                // Open the settings window
-                // This requires a separate WindowGroup for Settings in the App struct
-                // For now, we'll just open it
-                // A better approach would be to use @State and a .sheet or .window modifier
-                // to control visibility.
+                openWindow(id: "settings")
             }
             .keyboardShortcut(",") // Common shortcut for settings
             
@@ -52,7 +48,7 @@ struct PomodoroMenuBarAppApp: App {
         .menuBarExtraStyle(.window) // Makes it behave like a popover rather than a menu
         
         // Settings Window
-        WindowGroup("Settings") {
+        WindowGroup(id: "settings") {
             SettingsView(settingsManager: settingsManager)
         }
         .defaultPosition(.center) // Center the settings window
