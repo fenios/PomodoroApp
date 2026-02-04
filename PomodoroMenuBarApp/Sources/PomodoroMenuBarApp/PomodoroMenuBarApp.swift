@@ -47,12 +47,12 @@ struct PomodoroMenuBarAppApp: App {
         }
         .menuBarExtraStyle(.window) // Makes it behave like a popover rather than a menu
         
-        // Settings Window
-        WindowGroup(id: "settings") {
+        // Settings Window (Single Instance)
+        Window("Settings", id: "settings") {
             SettingsView(settingsManager: settingsManager)
         }
-        .defaultPosition(.center) // Center the settings window
-        .defaultSize(width: 400, height: 600) // Default size for settings window
+        .windowResizability(.contentSize)
+        .defaultPosition(.center)
     }
 
     private func timeString(from totalSeconds: TimeInterval) -> String {
