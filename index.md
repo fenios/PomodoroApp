@@ -4,3 +4,4 @@ This file serves as an index for all modules and features within the Pomodoro ap
 
 ## Modules:
 - [PomodoroTimerCore](Modules/PomodoroTimerCore/Readme.md): Core logic for the Pomodoro timer, including state management and phase transitions.
+- [MenuBarAppUI](Modules/MenuBarAppUI/Readme.md): User interface components for the menu bar application, including the PomodoroTimerView.
